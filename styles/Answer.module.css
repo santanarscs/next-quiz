@@ -1,0 +1,72 @@
+.answer {
+  display: flex;
+  min-width: 500px;
+  width: 80%;
+  height: 100px;
+  margin: 10px;
+  perspective: 1000px;
+}
+.answerContent {
+  position: relative;
+  display: flex;
+  flex: 1;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+
+}
+.isShowing.answerContent {
+  transform: rotateY(180deg);
+}
+.front, .back {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.back {
+  transform: rotateY(180deg)
+}
+
+.front {
+  align-items: center;
+  border-radius: 12px;
+  padding: 15px;
+  color: #252525;
+  background: #fff;
+}
+
+.back > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-radius: 12px;
+}
+.correct {
+  background: #2baa6d
+}
+.wrong {
+  background: #e44a4c
+}
+.correct .value, .wrong .value {
+  font-size: 1.5rem;
+}
+.word {
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:40px;
+  width: 40px;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-right: 20px;
+}
+.value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}

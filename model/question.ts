@@ -30,6 +30,9 @@ export default class QuestionModel {
       if(answer.isShowing) return true
     }
   }
+  get isNotAnswer() {
+    return !this.isAnswer
+  }
 
   replyWith(index: number): QuestionModel {
     const { isCorrect } = this.#answers[index]
@@ -45,6 +48,16 @@ export default class QuestionModel {
     let sortAnswers = sortItems(this.#answers)
     return new QuestionModel(this.#id, this.#title, sortAnswers, this.#isCorrect)
     
+  }
+
+  static fromObject(object: QuestionModel): QuestionModel {
+    const answers = object.answers.map(answer => AnswerModel.fromObject(answer))
+    return new QuestionModel(
+      object.id,
+      object.title,
+      answers,
+      object.isCorrect
+    )
   }
 
   toObject() {
