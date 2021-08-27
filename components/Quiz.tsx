@@ -24,7 +24,7 @@ function Quiz({ question, lastAnswer, handleAnswerReply, goNextStep }: QuizProps
       {question ? (
         <Question
           question={question}
-          timeOfReply={6}
+          timeOfReply={300}
           handleResponse={answerProvider}
           handleFinishTime={goNextStep}
         />
